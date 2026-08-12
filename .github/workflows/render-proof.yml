@@ -1,0 +1,38 @@
+name: render-proof-public-demo
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust toolchain
+        run: rustup toolchain install stable --profile minimal
+      - name: Add native proof binary
+        run: |
+          mkdir -p src/bin
+          cat > src/bin/render_proof.rs <<'RS'
+          #[path = "../barcode_image.rs"]
+          mod barcode_image;
+          fn main() {
+              let cards = [
+                  ("/DEMO123", 0usize, "proof-invoice-demo.png"),
+                  ("DEMO-OPENPOINT-001", 1usize, "proof-openpoint-demo.png"),
+                  ("Demo-OpenPoint-02", 1usize, "proof-openpoint-case-demo.png"),
+                  ("DEMO-FAMILY-001", 2usize, "proof-familymart-demo.png"),
+              ];
+              for (value, index, path) in cards {
+                  let png = barcode_image::render_png(value, index).expect("render PNG");
+                  std::fs::write(path, png).expect("write proof");
+              }
+          }
+          RS
+      - name: Render three proof images
+        run: cargo run --bin render_proof --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: barcode-public-demo-proof
+          path: proof-*.png

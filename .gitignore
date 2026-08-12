@@ -1,0 +1,21 @@
+/target
+/dist
+*.abp
+
+# Local secrets and runtime data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.config.json
+
+# Local/private media — only reviewed files under docs/images are public
+*.heic
+*.mov
+*.mp4
+photo_*
+/uploads/

@@ -1,0 +1,17 @@
+name: privacy-scan
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+
+jobs:
+  privacy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - run: pip install --disable-pip-version-check pillow
+      - name: Scan tracked files for secrets and metadata
+        run: python scripts/privacy_check.py

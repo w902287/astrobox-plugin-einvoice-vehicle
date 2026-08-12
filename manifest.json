@@ -1,0 +1,18 @@
+{
+  "name": "發票載具單卡設定",
+  "icon": "icon.png",
+  "version": "1.4.3",
+  "description": "小米手環 10 三卡隨身條碼設定；OPENPOINT 不限 GID；同步時自動啟動手環 App 並有限重送通知，可靠覆蓋已存在的錯誤快取圖片。",
+  "author": "w902287",
+  "website": "https://github.com/w902287/astrobox-plugin-einvoice-vehicle",
+  "entry": "astrobox_plugin_einvoice_single.wasm",
+  "wasi_version": 2,
+  "api_level": 3,
+  "permissions": [
+    "thirdpartyapp",
+    "interconnect",
+    "register_interconnect_recv",
+    "device"
+  ],
+  "additional_files": []
+}

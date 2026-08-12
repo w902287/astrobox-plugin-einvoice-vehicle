@@ -1,0 +1,28 @@
+name: build-abp-three-v143
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust target
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup target add wasm32-wasip2
+      - name: Build plugin
+        run: cargo build --target wasm32-wasip2 --release --locked
+      - name: Package ABP
+        run: |
+          mkdir -p dist
+          cp target/wasm32-wasip2/release/astrobox_plugin_einvoice_single.wasm dist/
+          cp manifest.json icon.png dist/
+          cd dist && zip -r ../einvoice-barcode-three-setter-v1.4.3.abp . && cd ..
+          sha256sum einvoice-barcode-three-setter-v1.4.3.abp
+      - uses: actions/upload-artifact@v4
+        with:
+          name: einvoice-barcode-three-setter-v1.4.3
+          path: einvoice-barcode-three-setter-v1.4.3.abp
