@@ -158,7 +158,7 @@ ae09066f367f043b368f59426e427e3bc76e77f1edab99a8416970a64be9217d
 - `/DEMO123`
 - `DEMO-OPENPOINT-001`
 - `Demo-OpenPoint-02`（非 GID、混合大小寫的虛構測試值）
-- `09XXXXXXXX`
+- `DEMO-FAMILY-001`
 
 ## 建置
 
