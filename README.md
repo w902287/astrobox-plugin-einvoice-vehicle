@@ -1,6 +1,10 @@
 # 隨身條碼｜小米手環 10 三卡條碼
 
-專為 **小米手環 10（Xiaomi Smart Band 10）**製作並完成實機驗證。在 AstroBox NG 中設定個人條碼，由手機產生完整 Code 128 圖片並可靠同步到手環。手環端可左右滑動切換：
+專為 **小米手環 10（Xiaomi Smart Band 10）**製作並完成實機驗證。透過 **[AstroBox NG](https://astrobox.online/zh-tw/)** 在手機設定個人條碼、安裝外掛與手環快應用，再由手機產生完整 Code 128 圖片並可靠同步到手環。手環端可左右滑動切換：
+
+> [!IMPORTANT]
+> **第一次使用？請先安裝 AstroBox NG。**<br>
+> AstroBox 是用來連接小米手環、安裝 `.rpk` 快應用，以及執行本專案 `.abp` 設定外掛的第三方工具箱。<br>> **➡️ [前往 AstroBox 官方網站下載／安裝](https://astrobox.online/zh-tw/)**
 
 1. 財政部電子發票手機條碼載具
 2. 7-ELEVEN OPENPOINT／uniopen 會員條碼
@@ -54,9 +58,18 @@
 
 ## 安裝
 
-### 一、在手機安裝 ABP 外掛
+### 第一步：先安裝 AstroBox NG
 
-1. 手機安裝並開啟 **AstroBox NG 2.x**。
+本專案的 `.abp` 與 `.rpk` 都不是一般 Android APK，必須透過 AstroBox 使用：
+
+1. 前往 **[AstroBox 官方網站（繁體中文）](https://astrobox.online/zh-tw/)**。
+2. 下載並安裝適合手機系統的 AstroBox NG 2.x。
+3. 第一次開啟時，依畫面授予藍牙、附近裝置與位置等連接手環所需權限。
+4. 在 AstroBox 內連接小米手環 10，再繼續下方的 ABP 與 RPK 安裝。
+
+### 第二步：在手機安裝 ABP 外掛
+
+1. 開啟已安裝的 **[AstroBox NG 2.x](https://astrobox.online/zh-tw/)**。
 2. 下載 `einvoice-barcode-three-setter-v1.4.3.abp`。
 3. 進入 AstroBox 的「插件／外掛」頁面，點右上角 **＋**。
 4. 從檔案管理器選擇 `.abp` 檔。
@@ -77,7 +90,7 @@ resource.unknown.type1000000042
 
 請改用其他檔案管理器開啟同一個 `.abp`，或從 AstroBox「插件」頁右上角 **＋**，以能保留原始檔名的檔案管理器選取。無須把 ABP 改成 APK，也無須重新打包。
 
-### 二、在小米手環 10 安裝 RPK
+### 第三步：在小米手環 10 安裝 RPK
 
 1. 使用 AstroBox 連接 **小米手環 10（Xiaomi Smart Band 10）**。
 2. 從裝置頁的「快捷應用」，或安裝隊列右上角 **＋**，選擇 `einvoice-barcode-three-band-v1.7.1.rpk`。
